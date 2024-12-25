@@ -1,0 +1,58 @@
+body{
+    background: linear-gradient(to left,bisque,rgb(101, 58, 58)) ;
+    background-repeat: no-repeat;
+    
+}   
+#link{
+    width: 100px;
+    height: 100px;
+}
+.fa-linkedin{
+    color: darkblue;
+    transform: translate(0px,-15px);
+    animation: rotate;
+    animation-duration: 5s;
+    position: absolute;
+    top: 50px;
+    right: 500px;
+    left: 500px;
+    bottom: 500px;
+}
+@keyframes rotate{
+    100%{transform: rotateZ(360deg);}
+}
+.fa-linkedin:hover{
+    color: tomato;
+}
+.fa-linkedin:visited{
+    color: black;
+}
+#h11{
+    background-color: aquamarine;
+    border-style: groove;
+    border-width: 15px;
+    border-radius: 50px;
+    padding: 6px;
+    border-color: darkgreen;
+    text-shadow: 9px 3px 5px hotpink;
+}
+#h11:hover{
+    box-shadow: -4px -3px 1px navy;
+}
+#box{
+    border: 5px solid;
+    border-color: black;
+    width: 150px;
+    height: 320px;
+    background-color: cyan;
+    
+}
+#table{
+    margin-left: auto;
+    margin-right: auto;
+    animation: rotate;
+    animation-duration: 5s;
+}
+li:nth-child(1){
+    background-color: blueviolet;
+}

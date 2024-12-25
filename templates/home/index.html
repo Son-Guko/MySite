@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dc771e5a68.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 id="help">information page</h1>
+    <form action="#" method="post">
+        {% csrf_token %}
+    all lists: <br>
+    {% for l in list.item_set.all %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepand">
+            <div class="input-group-text">
+                {% if l.complete == True %}
+                <input type="checkbox", value="clicked", name="c{{item.id}}", checked> {{l.text}}
+                {% else %}
+                <input type="checkbox", value="clicked", name="c{{item.id}}"> {{l.text}}
+                {% endif %}
+            </div>
+        </div>
+        <input type="text", value="{{l.texts}}", class="form-control">
+    </div>
+    {% endfor %} <br>
+    <hr>
+    the choosed list: <br>
+    {{list}} <br>
+    what to do: {{list.item_set.get}} <br>
+    <div class="input-group mb-3">
+        <div class="input-group-prepand">
+            <button type="submit" name="newItem" value="newItem" class="btn btn-success">Add Item</button>
+        </div>    
+        <input type="text" name="new", class="form-control">
+    </div>
+    <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
+
+    </form>
+    <a id="link" href="https://www.linkedin.com/in/moaz-ashraf-1b1014247/" target="_blank" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+    <img id="img" src="E:\شهادة تقديرات معاذ.jpg" height="400" width="600" title="this is my college degrees">
+    <audio controls src="C:\Users\user\Downloads\Naruto_Sad_Slowed_Suite_OST_Compilation_[_YouConvert.net_].mp3"></audio>
+    <video autoplay muted  width="500" title="مبروك عطية">
+        <source src="C:\Users\user\Downloads\الو - Made with Clipchamp.mp4">
+        <source src="C:\Users\user\Downloads\الو - Made with Clipchamp.another video format">
+        adding a lot of sources for multiple media format
+    </video>
+
+    <div id="box">
+    <p>this is normal text</p>
+    <p>this is <b>bold</b> text</p>
+    <p>this is <i>italic</i> text</p>
+    <p>this is <big>big</big> text</p>
+    <p>this is <small>small</small> text</p>
+    <p>this is <sub>subscript</sub> text</p>
+    <p>this is <sup>super script</sup> text</p>
+    <p>this is <ins>inserted</ins> text</p>
+    <pl>this is <mark>marked</mark> text</p>
+    </div>
+
+
+    <h3 style="color: #339CAD;">Store Hours</h3>
+    <table id="table" bgcolor="black">
+        <tr bgcolor="grey">
+            <th>unordered list</th>
+            <th>ordered list</th>
+        </tr>
+
+        <tr bgcolor="lightgrey">
+            <td>
+                <ul>
+                    <li>study</li>
+                    <li>playing</li>
+                </ul>
+            </td>
+            <td>
+                <ol>
+                    <li>studying</li>
+                    <li>playing</li>
+                </ol>
+            </td>
+        </tr>
+    </table>    
+    <ul>
+        <h1>unorderd list</h1>
+        <li>study</li>
+        <li>playing</li>
+    </ul>
+    <ol type="1">
+        <h1 id="h11">ordered list</h1>
+        <li>studying</li>
+        <li>playing</li>
+    </ol>
+    <dl>
+        <h1>description list</h1>
+        <dt>>Django</dt>
+        <dd>this is a backend framework</dd>
+    </dl>
+    <table style="background: rgb(255, 255, 255);">
+        <tr bgcolor="grey" style="vertical-align: middle;" style="text-align: center;">
+            <th style="text-align: center;" >the main colors</th>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <ul>
+                    <li style="color: red;">Red</li>
+                    <li style="color: green;">Green</li>
+                    <li style="color: blue;">Blue</li>
+                </ul>
+            </td>
+
+        </tr>
+    </table>
+    <p><span style="cursor: pointer;">This video is the intellectual property of Bro Code.</span>
+    All rights reserved. No part of this video may be reproduced, 
+    distributed, or transmitted in any form or by any means, 
+    including but not limited to recording, uploading, or other 
+    electronic or mechanical methods, without my written permission, 
+    except in the case of brief quotations embodied in critical reviews 
+    and certain other noncommercial uses permitted by copyright law</p>
+    
+    <iframe src="E:\CV.pdf" width="500" height="600" frameborder="0">the cv</iframe>
+    <a href="E:\CV.pdf" target="_blank">
+    <button style="background-color: rgb(62, 62, 60); color: rgb(234, 229, 96); 
+    border-radius: 15%; border: 5cap; cursor: pointer; width: 70; height: 30;">
+    click me
+    </button>
+    </a>
+    <form action="">
+        <label for="fname">first name</label>
+        <input type="text" id="fname" name="fname" 
+        placeholder="write your first name">
+    </form>
+</body>
+</html>
+{% endblock content %}
