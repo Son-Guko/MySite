@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponseRedirect
 from .models import ToDoList, Item
-from main.forms import Createnewlist
+from main.forms import Createnewlist , DocumentForm
 
 # Create your views here.
 def index(request, id):
@@ -39,3 +39,14 @@ def create(request):
     else:
         form = Createnewlist()
     return render(request, 'home\create.html', {'form':form})
+
+
+def upload_file(request): 
+    if request.method == 'POST': 
+        form = DocumentForm(request.POST, request.FILES) 
+        if form.is_valid(): 
+            form.save() 
+            return redirect('upload_file') 
+    else: form = DocumentForm() 
+    
+    return render(request, 'upload.html', {'form': form})
