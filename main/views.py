@@ -1,12 +1,13 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponseRedirect
-from .models import ToDoList, Item
+from .models import ToDoList, Item, Document
 from main.forms import Createnewlist , DocumentForm
 
 # Create your views here.
 def index(request, id):
     list = ToDoList.objects.filter(id=id)
     lists = ToDoList.objects.all()
+    photos = Document.objects.all()
     if request.method == 'POST':
         if request.POST.get("save"):
             for item in list.item_set.all():
@@ -23,7 +24,7 @@ def index(request, id):
                 list.item_set.create(text = txt, complete = False)
             else:
                 print("Invalid Item")
-    return render(request, 'home\index.html', {'list':list, 'lists':lists})
+    return render(request, 'home\index.html', {'list':list, 'lists':lists, 'photos':photos})
 
 def home(request):
     return render(request, 'base.html')
